@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cartoon Movie</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    h1 {
+      text-align: center;
+    }
+    .movie-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .movie-image {
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    .movie-details {
+      width: 30%;
+      padding-left: 10px;
+    }
+     body{
+      background-color: #51647e;
+       margin-left: 13%;
+      margin-right: 15%;
+    }
+
+     a:link{
+    color: black;
+    font-size: 20px;
+  }
+
+   a:visited{
+    color: black;
+    
+  }
+
+    a:hover{
+    color: gray;
+  }
+  *{
+    font-family: cursive;
+    text-align: center;
+  }
+
+  header,footer{
+    
+
+    margin-bottom: 20%;
+    height: 20px;
+    position: relative;
+    width: 100%;
+    opacity: 100%;
+    text-align: center;
+  }
+
+    #home{
+    
+    width: 100%;
+
+  }
+  
+
+  #red{
+    color: darkred;
+  }
+    #ic{
+    width:75px;
+    height: 75px;
+    position: relative;
+    margin: 0;
+  }
+
+    h1{
+       color: darkred;
+    }
+
+    h2{
+       color: darkred;
+    }
+
+
+    h2 i {
+    color: #FFD801; 
+   
+  }
+
+  .checked {
+      color: orange;
+    }
+
+  </style>
+  <script>
+
+
+
+    function colors(){
+    var color= document.getElementById('pick').value;
+    document.getElementById('colorms').style.background=color;
+  
+    var theme;
+    if (color=== '#51647e') {
+      theme='dark' //to change header and footer to dark, note, add later head and foot
+    }else{ //because i didnt decide a color yrt
+      theme='light'; //same above but to light mode :)
+    }
+    var header= document.getElementById("header");
+    var foot= document.getElementById("footer");
+    if (theme==='dark') {
+      header.innerHTML="<a id='home' href='Home.html'> <img src='Screen3.jpg'>  </a>";
+      footer.style.background="#2a3647" ;
+    }
+    else{
+      header.innerHTML="<a id='home' href='Home.html'> <img src='Screen3.jpg'> </a> ";
+      footer.style.background="white";
+
+    }
+
+
+  }
+
+   function searchMovies() {
+      var searchTerm = document.getElementById('search').value.toLowerCase();
+      var movieContainers = document.getElementsByClassName('movie-container');
+      for (var i = 0; i < movieContainers.length; i++) {
+        var movieName = movieContainers[i].querySelector('h2').innerText.toLowerCase();
+        if (movieName.includes(searchTerm)) {
+          movieContainers[i].style.display = 'flex';
+        } else {
+          movieContainers[i].style.display = 'none';
+        }
+      }
+    }
+
+   </script>
+</head>
+<body id="colorms">
+<header id="header">
+   
+  
+
+</header>
+<a  href="Home.html"><img id="ic" src="home.png"> </a>
+  theme:
+   <select name="backgroundcolor" id="pick" onchange=" javascript:colors()" >
+   <option value="#51647e">dark</option>
+   <option value="white">Light</option>
+   </select>
+
+
+  <h1>Cartoon Movie</h1>
+<h2><i> Get ready to be enchanted by the magic of "The Fantastic Fable Forest" and let your imagination take flight</i></h2>
+    <input type="text" id="search" placeholder="Search movie by title..." onkeyup="searchMovies()">
+
+
+  <div class="movie-container">
+    <img src="Soul.webp" alt="Movie 1" class="movie-image">
+    <div class="movie-details">
+      <h2>Soul</h2>
+      <p> Joe is a middle-school band teacher whose life hasn't quite gone the way he expected. His true passion is jazz. But when he travels to another realm to help someone find their passion, he soon discovers what it means to have soul.</p>
+      <h2>Trailer</h2>
+      <video src="soul.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    
+  </div>
+
+
+  <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+
+  </div>
+
+
+
+  <div class="movie-container">
+    <img src="Encanto.jpg" alt="Movie 2" class="movie-image">
+    <div class="movie-details">
+      <h2>Encanto</h2>
+      <p>TEncanto follows a multigenerational Colombian family, the Madrigals, led by a matriarch whose children and grandchildren—except for Mirabel Madrigal—receive magical gifts from a miracle, which they use to help the people in their rural community, called the Encanto.</p>
+      <h2>Trailer</h2>
+      <video src="Encanto.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+   </div>
+ <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+  </div>
+
+
+  <div class="movie-container">
+    <img src="zootopia.jpg" alt="Movie 3" class="movie-image">
+    <div class="movie-details">
+      <h2>Zootopia</h2>
+      <p>Zootopia follows the story of Judy Hopps, a sweet bunny who pursues her childhood dream and becomes the first rabbit police officer. Despite graduating top of her class, Judy faces discrimination in the police force and is assigned to parking duty rather than the important missing mammal cases.</p>
+      <h2>Trailer</h2>
+      <video src="zootopia.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+  </div>
+
+  <div class="movie-container">
+    <img src="Tangled.jpg" alt="Movie 4" class="movie-image">
+    <div class="movie-details">
+      <h2>Tangled</h2>
+      <p>Featuring the voices of Mandy Moore, Zachary Levi, and Donna Murphy, Tangled tells the story of Rapunzel, a lost young princess with magical long blonde hair who yearns to leave her secluded tower. She accepts the aid of an intruder to take her out into the world which she has never seen.</p>
+      <h2>Trailer</h2>
+      <video src="tangled.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+
+      
+    </div>
+    <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+  </div>
+
+  <div class="movie-container">
+    <img src="download-1.jpg" alt="Movie 5" class="movie-image">
+    <div class="movie-details">
+      <h2>Coco</h2>
+      <p>Disney Pixar's Coco follows the journey of young Miguel to find his great-great grandfather in the Land of the Dead. Coco provides us with a strong reminder that despite death, family history can transcend the years and continue to shape our families for generations to come.</p>
+      <h2>Trailer</h2>
+      <video src="coco.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    
+  </div>
+     <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+  </div>
+
+ <hr>
+<tt>
+  <a id="red"  href="review.html">review</a>
+
+<br>
+<a id="red"  href="Contac Us.html">Contact Us</a>
+
+</tt>
+
+</body>
+</html>

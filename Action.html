@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Action Movie</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    h1 {
+      text-align: center;
+    }
+    .movie-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .movie-image {
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    .movie-details {
+      width: 30%;
+      padding-left: 10px;
+    }
+     body{
+      background-color: #51647e;
+       margin-left: 13%;
+      margin-right: 15%;
+    }
+
+     a:link{
+    color: black;
+    font-size: 20px;
+  }
+
+   a:visited{
+    color: black;
+    
+  }
+
+    a:hover{
+    color: gray;
+  }
+  *{
+    font-family: cursive;
+    text-align: center;
+  }
+
+  header,footer{
+    
+
+    
+    margin-bottom: 20%;
+    height: 100px;
+    position: relative;
+    width: 100%;
+    opacity: 100%;
+    text-align: center;
+  }
+
+    #home{
+    
+    width: 100%;
+
+  }
+    #red{
+      color: darkred;
+    }
+    #ic{
+      width:75px;
+      height: 75px;
+      position: relative;
+      margin: 0;
+    }
+    h1{
+      color: darkred;
+    }
+    h2{
+      color: darkred;
+    }
+    p{
+      color:black;
+    }
+    h2 i {
+      color: #FFD801; 
+    
+    }
+    .checked {
+      color: orange;
+    }
+
+  </style>
+  <script>
+    function searchMovies() {
+      var input = document.getElementById('search').value.toLowerCase();
+      var movieContainers = document.getElementsByClassName('movie-container');
+
+      for (var i = 0; i < movieContainers.length; i++) {
+        var movieTitle = movieContainers[i].getElementsByClassName('movie-details')[0].getElementsByTagName('h2')[0].textContent.toLowerCase();
+
+        if (movieTitle.includes(input)) {
+          movieContainers[i].style.display = 'flex';
+        } else {
+          movieContainers[i].style.display = 'none';
+        }
+      }
+    }
+
+    function colors() {
+      var color = document.getElementById('pick').value;
+      document.getElementById('colorms').style.background = color;
+    }
+  </script>
+</head>
+<body id="colorms">
+  <header>
+
+   
+  </header>
+  <a href="Home.html"><img id="ic" src="home.png"> </a>
+  theme:
+  <select name="backgroundcolor" id="pick" onchange="colors()">
+    <option value="#51647e">dark</option>
+    <option value="white">Light</option>
+  </select>
+  <h1>Action Movie</h1>
+  <h2><i> Brace yourself for heart-pounding action, jaw-dropping stunts, and a relentless battle between heroes and villains </i></h2>
+  <input type="text" id="search" placeholder="Search movies by title" onkeyup="searchMovies()">
+  <div class="movie-container">
+    <img src="Damsel.jpg" alt="Movie 1" class="movie-image">
+    <div class="movie-details">
+   
+
+      <h2>Damsel</h2>
+      <p> A Shayk woman's marriage to a charming prince turns into a fierce fight for survival, when a sacrifice is made in the jaws of a fire-breathing dragon.</p>
+      <h2>Trailer</h2>
+      <video src="Damsel.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  // Get the submit button element
+  var submitButton = document.getElementById('submitRating');
+
+
+  // Add event listeners to each star for user interaction
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+
+    
+    
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+
+  });
+</script>
+  </div>
+
+
+
+  <div class="movie-container">
+    <img src="Interceptor.jpg" alt="Movie 2" class="movie-image">
+    <div class="movie-details">
+   
+
+
+      <h2>Interceptor</h2>
+      <p>The last female officer in charge of a remote missile defense base wages the fight of her life against terrorists who are aiming sixteen stolen nuclear weapons at the United States.</p>
+      <h2>Trailer</h2>
+      <video src="Interceptor.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  // Get the submit button element
+  var submitButton = document.getElementById('submitRating');
+
+
+  // Add event listeners to each star for user interaction
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+
+    
+    
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+
+  });
+</script>
+
+  </div>
+
+
+
+  <div class="movie-container">
+    <img src="Red Right Hand.jpg" alt="Movie 3" class="movie-image">
+    <div class="movie-details">
+      <h2>Red Right Hand</h2>
+      <p>Cash seeks to live a quiet and clean life away from the life of crime, but when Big Cat forces him to return to the forbidden work with her, Cash seeks to do the impossible in order to save his family and his town in Red Right Hand.</p>
+      <h2>Trailer</h2>
+      <video src="Red Right Hand.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  // Get the submit button element
+  var submitButton = document.getElementById('submitRating');
+
+
+  // Add event listeners to each star for user interaction
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+
+    
+    
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+
+  });
+</script>
+
+  </div>
+
+  <div class="movie-container">
+    <img src="land of bad.jpg" alt="Movie 4" class="movie-image">
+    <div class="movie-details">
+      <h2>land of bad</h2>
+      <p> The field air support controller led by Kenny cooperates with the Delta Force team to perform a mission in the Philippines, but the team is trapped in a place without weapons and there is no way to escape except the skills of the pilot (Reaper) in the Land of Bad.</p>
+      <h2>Trailer</h2>
+      <video src="land of bad.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>  
+    </div>
+    <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  // Get the submit button element
+  var submitButton = document.getElementById('submitRating');
+
+
+  // Add event listeners to each star for user interaction
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+
+    
+    
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+
+  });
+</script>
+  </div>
+
+  <div class="movie-container">
+    <img src="The Beekeeper.jpg" alt="Movie 5" class="movie-image">
+    <div class="movie-details">
+      <h2>The Beekeeper</h2>
+      <p>An apiary, often called a beekeeper, maintains and manages colonies of honeybees for the production of honey as well as to provide pollination services. Beekeepers will also construct hives, replace combs and collects and package any hive products including honey, beeswax, and pollen.</p>
+      <h2>Trailer</h2>
+      <video src="The Beekeeper.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>  
+    </div>
+    <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  // Get the submit button element
+  var submitButton = document.getElementById('submitRating');
+
+
+  // Add event listeners to each star for user interaction
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+
+    
+    
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+
+  });
+</script>
+  </div>
+  <hr>
+  <tt>
+       <a id="red"  href="review.html">review</a>
+
+<br>
+<a id="red"  href="Contac Us.html">Contact Us</a>
+  </tt>
+</body>
+</html>
