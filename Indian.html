@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Indian Movie</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    h1 {
+      text-align: center;
+    }
+    .movie-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .movie-image {
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    .movie-details {
+      width: 30%;
+      padding-left: 10px;
+    }
+      body{
+      background-color: #51647e;
+       margin-left: 13%;
+      margin-right: 15%;
+    }
+
+     a:link{
+    color: black;
+    font-size: 20px;
+  }
+
+   a:visited{
+    color: black;
+    
+  }
+
+    a:hover{
+    color: gray;
+  }
+  *{
+    font-family: cursive;
+    text-align: center;
+  }
+
+  header,footer{
+    
+
+    
+    margin-bottom: 20%;
+    height: 100px;
+    position: relative;
+    width: 100%;
+    opacity: 100%;
+    text-align: center;
+  }
+
+    #home{
+    
+    width: 100%;
+
+  }
+    #red{
+      color: darkred;
+    }
+    #ic{
+      width:75px;
+      height: 75px;
+      position: relative;
+      margin: 0;
+    }
+
+    h2{
+      color: darkred;
+    }
+
+    h1{
+      color: darkred;
+    }
+
+    p{
+      color:#black;
+    }
+
+    h2 i {
+      color: #FFD801; 
+    
+    }
+
+    p i {
+      text-align: center;
+    }
+    .checked {
+      color: orange;
+    }
+
+  </style>
+  <script>
+    function colors(){
+      var color = document.getElementById('pick').value;
+      document.getElementById('colorms').style.background = color;
+    }
+
+    function searchMovies() {
+      var searchTerm = document.getElementById('search').value.toLowerCase();
+      var movieContainers = document.getElementsByClassName('movie-container');
+      for (var i = 0; i < movieContainers.length; i++) {
+        var movieName = movieContainers[i].querySelector('h2').innerText.toLowerCase();
+        if (movieName.includes(searchTerm)) {
+          movieContainers[i].style.display = 'flex';
+        } else {
+          movieContainers[i].style.display = 'none';
+        }
+      }
+    }
+  </script>
+</head>
+<body id="colorms">
+  <header>
+  
+  </header>
+  <a  href="Home.html"><img id="ic" src="home.png"> </a>
+  theme:
+  <select name="backgroundcolor" id="pick" onchange="colors()">
+    <option value="#51647e">dark</option>
+    <option value="white">Light</option>
+  </select>
+  <h1>Indians Movie</h1>
+  <h2><i> Welcome to a world where destiny dances to the rhythm of passion, and where the spirit of India shines brightest</i></h2>
+  <input type="text" id="search" placeholder="Search movie by title..." onkeyup="searchMovies()">
+  
+  <div class="movie-container">
+    <img src="Bajrangi-Bhaijaan.jpg" alt="Movie 1" class="movie-image">
+    <div class="movie-details">
+
+      <h2>Bajrangi Bhaijaa</h2>
+      <p> Salman Khan plays Pawan, a devotee of Lord Hanuman. He finds a lost little girl (Harshaali Malhotra) who is mute. It is eventually revealed that she is Pakistani, and Pawan must risk his life and freedom to travel there and return her to her home.</p>
+      <h2>Trailer</h2>
+      <video src="baj.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+<h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+
+  </div>
+
+
+
+
+
+
+
+  <div class="movie-container">
+    <img src="download.jpg" alt="Movie 2" class="movie-image">
+    <div class="movie-details">
+      <h2>Taare Zameen Par</h2>
+      <p>The film portrays the life of a young boy, Ishan Awasthi (enacted by 8-year-old Darsheel Safary), who is dyslexic and cannot read or write; he leads a tormented life until he meets with his art teacher, Ramashankar Nikumbh (enacted by Amir Khan), who discovers his artistic talents.</p>
+      <h2>Trailer</h2>
+      <video src="Taare Zameen Par.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+     <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="movie-container">
+    <img src="Dangal_(film).jpg" alt="Movie 3" class="movie-image">
+    <div class="movie-details">
+      <h2>Dangal</h2>
+      <p>The film stars Khan asMahavir Singh Phogat, a pehlwani amateur wrestler who trains his daughters Geeta Phogat and Babita Kumari to become India's first world-class female wrestlers.</p>
+      <h2>Trailer</h2>
+      <video src="Dangal.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+     <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+
+  </div>
+
+
+
+
+
+
+  <div class="movie-container">
+    <img src="pk.jpg" alt="Movie 4" class="movie-image">
+    <div class="movie-details">
+      <h2>PK</h2>
+      <p> An innocent alien lands on Earth but loses his communication device. He meets Jaggu, a heartbroken reporter, and tries to find his device. With time, he raises many thought-provoking questions.</p>
+      <h2>Trailer</h2>
+      <video src="pk.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+       <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="movie-container">
+    <img src="Gunjan_Saxena_poster.jpg" alt="Movie 5" class="movie-image">
+    <div class="movie-details">
+      <h2>Gunjan Saxena: The Kargil Girl</h2>
+      <p>Based on a true story about Flight Lieutenant Gunjan Saxena, who was born in 1975 and became an Indian Air Force officer and former helicopter pilot.</p>
+      <h2>Trailer</h2>
+      <video src="WhatsApp Video 2024-03-22 at 7.20.38 PM.mp4" controls width="340" height="140">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <h2>Rating </h2>
+
+<div id="ratingStars">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
+<button id="submitRating">Submit Rating </button>
+
+
+
+<script>
+  // Get the container element for the rating stars
+  var ratingStars = document.getElementById('ratingStars');
+  
+  
+  ratingStars.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fa-star')) {
+      // Clear previous ratings
+      var stars = ratingStars.getElementsByClassName('fa-star');
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].classList.remove('checked');
+      }
+
+      // Set the selected star and all previous stars as checked
+      var selectedStar = e.target;
+      selectedStar.classList.add('checked');
+      var previousStars = selectedStar.previousElementSibling;
+      while (previousStars) {
+        previousStars.classList.add('checked');
+        previousStars = previousStars.previousElementSibling;
+      }
+    }
+  });
+  
+  // Add event listener to the submit button
+  submitButton.addEventListener('click', function() {
+    // Get the selected rating
+    var selectedRating = ratingStars.getElementsByClassName('checked').length;
+  
+    // Reset the rating stars
+    var stars = ratingStars.getElementsByClassName('fa-star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('checked');
+    }
+    
+    };
+</script>
+
+  </div>
+  <hr>
+  <tt>
+    <a id="red"  href="review.html">review</a>
+
+<br>
+<a id="red"  href="Contac Us.html">Contact Us</a>
+  </tt>
+</body>
+</html>
